@@ -1,14 +1,17 @@
 package Model.Cliente;
 
-import java.util.Date;
-
 public class ClientePF extends Cliente {
+
+    public ClientePF(String nome, String cpf, int id) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.id = id;
+    }
 
     private String nome;
 
     private String cpf;
 
-    private Date dataNascimento;
 
     public String getNome() {
         return nome;
@@ -18,7 +21,5 @@ public class ClientePF extends Cliente {
         return cpf;
     }
 
-    public Date getDataNascimento() {
-        return dataNascimento;
-    }
+
 }

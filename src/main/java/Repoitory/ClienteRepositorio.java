@@ -5,11 +5,11 @@ import Model.Cliente.ClientePF;
 import java.util.List;
 import java.util.Optional;
 
-public class ClientePFRepositorio {
+public class ClienteRepositorio {
 
     private List<ClientePF> lista;
 
-    public ClientePFRepositorio(List<ClientePF> lista){
+    public ClienteRepositorio(List<ClientePF> lista){
         this.lista = lista;
     }
 

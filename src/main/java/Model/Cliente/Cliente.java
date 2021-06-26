@@ -4,16 +4,16 @@ import java.util.List;
 
 public abstract class Cliente {
 
-    private Long ID;
+    protected int id;
 
-    List<String> Contas;
+    protected List<String> Contas;
 
-    public Long getID() {
-        return ID;
+    public int getId() {
+        return id;
     }
 
-    public void setID(Long ID) {
-        this.ID = ID;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public List<String> getContas() {
