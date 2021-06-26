@@ -1,15 +1,15 @@
-package Repoitory;
+package Repository;
 
 import Model.Cliente.ClientePF;
 
 import java.util.List;
 import java.util.Optional;
 
-public class ClienteRepositorio {
+public class ClientePFRepositorio {
 
     private List<ClientePF> lista;
 
-    public ClienteRepositorio(List<ClientePF> lista){
+    public ClientePFRepositorio(List<ClientePF> lista){
         this.lista = lista;
     }
 
