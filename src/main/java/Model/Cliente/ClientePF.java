@@ -10,5 +10,15 @@ public class ClientePF extends Cliente {
 
     private Date dataNascimento;
 
+    public String getNome() {
+        return nome;
+    }
 
+    public String getCpf() {
+        return cpf;
+    }
+
+    public Date getDataNascimento() {
+        return dataNascimento;
+    }
 }

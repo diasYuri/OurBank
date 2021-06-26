@@ -8,5 +8,19 @@ public abstract class Cliente {
 
     List<String> Contas;
 
+    public Long getID() {
+        return ID;
+    }
 
+    public void setID(Long ID) {
+        this.ID = ID;
+    }
+
+    public List<String> getContas() {
+        return Contas;
+    }
+
+    public void setContas(List<String> contas) {
+        Contas = contas;
+    }
 }
