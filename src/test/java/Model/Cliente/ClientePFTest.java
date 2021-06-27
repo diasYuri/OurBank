@@ -14,9 +14,16 @@ class ClientePFTest {
     }
 
     @Test
-    void DeveSetarUmCpfValido() {
+    void deveSetarUmCpfValido() {
         ClientePF cliente = new ClientePF("qualquerNome", "029.126.110-83");
 
         assertEquals("029.126.110-83", cliente.getCpf());
+    }
+
+    @Test
+    void deveRetornarNome() {
+        ClientePF cliente = new ClientePF("qualquerNome", "029.126.110-83");
+
+        assertEquals("qualquerNome", cliente.getNome());
     }
 }

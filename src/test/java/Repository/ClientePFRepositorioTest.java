@@ -32,7 +32,7 @@ class ClientePFRepositorioTest {
         var repositorio = new ClientePFRepositorio(lista);
         Optional<ClientePF> resposta = repositorio.getById("029.126.110-83");
 
-        assertEquals(1, resposta.get().getId());
+        assertEquals("029.126.110-83", resposta.get().getCpf());
     }
 
     @Test

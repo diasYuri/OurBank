@@ -2,14 +2,15 @@ package Model.Cliente;
 
 public class ClientePF extends Cliente {
 
-    public ClientePF(String nome, String cpf) {
-        this.setNome(nome);
-        this.setCpf(cpf);
-    }
 
     private String nome;
 
     private String cpf;
+
+    public ClientePF(String nome, String cpf) {
+        this.setNome(nome);
+        this.setCpf(cpf);
+    }
 
     public ClientePF setNome(String nome) {
         this.nome = nome;

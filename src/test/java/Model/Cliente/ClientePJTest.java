@@ -9,22 +9,27 @@ class ClientePJTest {
     @Test
     void naoDeveSetarUmCnpjInvalido() {
 
-        ClientePJ cliente = new ClientePJ();
+        ClientePJ cliente = new ClientePJ("qualquer", "invalido");
 
-        cliente.setCnpj("cnpjInvalido");
-
-        assertEquals("", cliente.getCnpj());
+        assertEquals(null, cliente.getCnpj());
 
     }
 
     @Test
-    void DeveSetarUmCnpjValido() {
+    void deveSetarUmCnpjValido() {
 
-        ClientePJ cliente = new ClientePJ();
+        ClientePJ cliente = new ClientePJ("qualquer", "42.623.188/0001-74");
 
-        cliente.setCnpj("42.623.188/0001-74");
 
         assertEquals("42.623.188/0001-74", cliente.getCnpj());
 
+    }
+
+    @Test
+    void deveRetornarRazãoSocial(){
+        ClientePJ cliente = new ClientePJ("qualquer", "42.623.188/0001-74");
+
+
+        assertEquals("qualquer", cliente.getRazaoSocial());
     }
 }

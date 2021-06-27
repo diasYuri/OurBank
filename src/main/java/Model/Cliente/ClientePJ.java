@@ -2,12 +2,14 @@ package Model.Cliente;
 
 public class ClientePJ extends Cliente {
 
-    public ClientePJ(){
-
-    }
-
     private String razaoSocial;
     private String cnpj;
+
+
+    public ClientePJ(String razaoSocial, String cnpj){
+        this.setCnpj(cnpj);
+        this.setRazaoSocial(razaoSocial);
+    }
 
     public ClientePJ setRazaoSocial(String razaoSocial) {
         this.razaoSocial = razaoSocial;

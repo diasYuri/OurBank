@@ -15,7 +15,7 @@ class ClientePJRepositorioTest {
         var lista = new ArrayList<ClientePJ>();
         var repositorio = new ClientePJRepositorio(lista);
 
-        var cliente = new ClientePJ();
+        var cliente = new ClientePJ("qualquer", "42.623.188/0001-74");
         repositorio.salvar(cliente);
 
         assertEquals(cliente, lista.get(0));
@@ -24,8 +24,7 @@ class ClientePJRepositorioTest {
     @Test
     public void testGetByCnpj() {
         var lista = new ArrayList<ClientePJ>();
-        var cliente = new ClientePJ();
-        cliente.setCnpj("42.623.188/0001-74");
+        var cliente = new ClientePJ("qualquer", "42.623.188/0001-74");
 
         lista.add(cliente);
 
@@ -38,8 +37,7 @@ class ClientePJRepositorioTest {
     @Test
     public void testRemove() {
         var lista = new ArrayList<ClientePJ>();
-        var cliente = new ClientePJ();
-        cliente.setCnpj("42.623.188/0001-74");
+        var cliente = new ClientePJ("qualquer", "42.623.188/0001-74");
 
         lista.add(cliente);
 
