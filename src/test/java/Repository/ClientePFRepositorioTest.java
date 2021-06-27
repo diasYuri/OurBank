@@ -18,6 +18,7 @@ class ClientePFRepositorioTest {
         var cliente = new ClientePF("Any", "123", 1);
         repositorio.salvar(cliente);
 
+
         assertEquals(cliente, lista.get(0));
     }
 

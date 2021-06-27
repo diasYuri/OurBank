@@ -20,12 +20,12 @@ public class ClientePJRepositorio {
     Optional<ClientePJ> getByCnpj(String cnpj){
         return this.lista
                 .stream()
-                .filter(c -> (c.getCnpj().equals(cnpj)))
+                .filter(c -> c.getCnpj().equals(cnpj))
                 .findFirst();
 
     }
 
     void remove(String cnpj){
-        this.lista.removeIf(c -> equals(c.getCnpj().equals(cnpj)));
+        this.lista.removeIf(c -> c.getCnpj().equals(cnpj));
     }
 }
