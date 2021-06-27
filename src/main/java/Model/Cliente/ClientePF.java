@@ -18,7 +18,8 @@ public class ClientePF extends Cliente {
     }
 
     public ClientePF setCpf(String cpf) {
-        if(!cpf.matches("/^\\d{3}\\.\\d{3}\\.\\d{3}\\-\\d{2}$/")){
+        if(!cpf.matches("d{2}.?d{3}.?d{3}/?d{4}-?d{2}")){
+
             System.out.println("Cpf inválido");
             return this;
         }

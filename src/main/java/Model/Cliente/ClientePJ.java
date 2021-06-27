@@ -2,9 +2,8 @@ package Model.Cliente;
 
 public class ClientePJ extends Cliente {
 
-    public ClientePJ(String razaoSocial, String cnpj){
-        this.razaoSocial = razaoSocial;
-        this.cnpj = cnpj;
+    public ClientePJ(){
+
     }
 
     private String razaoSocial;
@@ -16,7 +15,7 @@ public class ClientePJ extends Cliente {
     }
 
     public ClientePJ setCnpj(String cnpj) {
-        if(!cnpj.matches("/^\\d{2}\\.\\d{3}\\.\\d{3}\\/\\d{4}\\-\\d{2}$/")){
+        if(!cnpj.matches("[0-9]{2}[\\.]?[0-9]{3}[\\.]?[0-9]{3}[\\/]?[0-9]{4}[-]?[0-9]{2}")){
             System.out.println("Cnpj inválido");
             return this;
         }
