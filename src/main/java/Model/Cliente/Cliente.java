@@ -1,26 +1,19 @@
 package Model.Cliente;
 
+import Model.Conta.Conta;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Cliente {
 
-    protected int id;
+    protected List<Conta> contas;
 
-    protected List<String> Contas;
-
-    public int getId() {
-        return id;
+    public Cliente(){
+        contas = new ArrayList<Conta>();
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public List<String> getContas() {
-        return Contas;
-    }
-
-    public void setContas(List<String> contas) {
-        Contas = contas;
+    public List<Conta> getContas() {
+        return this.contas;
     }
 }
