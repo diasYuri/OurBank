@@ -7,9 +7,7 @@ public class Conta {
 
     private String agencia;
     private String numero;
-
     private BigDecimal dinheiro;
-
     private Date dataFiliação;
     private String chavePix;
 
