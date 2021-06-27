@@ -17,16 +17,16 @@ public class ClientePFRepositorio {
         this.lista.add(cliente);
     }
 
-    Optional<ClientePF> getById(int id){
+    Optional<ClientePF> getById(String cpf){
         return this.lista
                 .stream()
-                .filter(c -> c.getId() == id)
+                .filter(c -> c.getCpf() == cpf)
                 .findFirst();
 
     }
 
-    void remove(int id){
-        this.lista.removeIf(c -> c.getId() == id);
+    void remove(String cpf){
+        this.lista.removeIf(c -> c.getCpf() == cpf);
     }
 
 }

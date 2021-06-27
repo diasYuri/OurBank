@@ -2,10 +2,9 @@ package Model.Cliente;
 
 public class ClientePF extends Cliente {
 
-    public ClientePF(String nome, String cpf, int id) {
-        this.nome = nome;
-        this.cpf = cpf;
-        this.id = id;
+    public ClientePF(String nome, String cpf) {
+        this.setNome(nome);
+        this.setCpf(cpf);
     }
 
     private String nome;
@@ -18,7 +17,7 @@ public class ClientePF extends Cliente {
     }
 
     public ClientePF setCpf(String cpf) {
-        if(!cpf.matches("d{2}.?d{3}.?d{3}/?d{4}-?d{2}")){
+        if(!cpf.matches("[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}")){
 
             System.out.println("Cpf inválido");
             return this;

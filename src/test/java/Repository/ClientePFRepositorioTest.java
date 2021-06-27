@@ -15,7 +15,7 @@ class ClientePFRepositorioTest {
         var lista = new ArrayList<ClientePF>();
         var repositorio = new ClientePFRepositorio(lista);
 
-        var cliente = new ClientePF("Any", "123", 1);
+        var cliente = new ClientePF("Any", "029.126.110-83");
         repositorio.salvar(cliente);
 
 
@@ -25,12 +25,12 @@ class ClientePFRepositorioTest {
     @Test
     public void testGetById() {
         var lista = new ArrayList<ClientePF>();
-        var cliente = new ClientePF("Any", "123", 1);
+        var cliente = new ClientePF("Any", "029.126.110-83");
         lista.add(cliente);
 
 
         var repositorio = new ClientePFRepositorio(lista);
-        Optional<ClientePF> resposta = repositorio.getById(1);
+        Optional<ClientePF> resposta = repositorio.getById("029.126.110-83");
 
         assertEquals(1, resposta.get().getId());
     }
@@ -38,11 +38,11 @@ class ClientePFRepositorioTest {
     @Test
     public void testRemove() {
         var lista = new ArrayList<ClientePF>();
-        var cliente = new ClientePF("Any", "123", 1);
+        var cliente = new ClientePF("Any", "029.126.110-83");
         lista.add(cliente);
 
         var repositorio = new ClientePFRepositorio(lista);
-        repositorio.remove(1);
+        repositorio.remove("029.126.110-83");
 
         assertEquals(0, lista.size());
     }
