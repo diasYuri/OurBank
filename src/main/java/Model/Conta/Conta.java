@@ -7,9 +7,13 @@ public class Conta {
 
     private String agencia;
     private String numero;
-    private BigDecimal dinheiro;
+    private BigDecimal saldo;
     private Date dataFiliação;
     private String chavePix;
+
+    public Conta(BigDecimal saldo){
+        this.saldo = saldo;
+    }
 
     public String getAgencia() {
         return agencia;
@@ -19,8 +23,8 @@ public class Conta {
         return numero;
     }
 
-    public BigDecimal getDinheiro() {
-        return dinheiro;
+    public BigDecimal getSaldo() {
+        return saldo;
     }
 
     public Date getDataFiliação() {
@@ -31,6 +35,29 @@ public class Conta {
         return chavePix;
     }
 
+    public Boolean retirarDinheiro(BigDecimal valor){
+        if(valor.compareTo(new BigDecimal(0)) != 1){
+            System.out.println("Valor da retirada não pode ser menor ou igual a 0");
+            return false;
+        }
 
+        if(valor.compareTo(this.saldo) == 1){
+            System.out.println("Saldo indisponivel");
+            return false;
+        }
+
+        this.saldo = this.saldo.subtract(valor);
+        return true;
+    }
+
+    public Boolean depositarDinheiro(BigDecimal valor){
+        if(valor.compareTo(new BigDecimal(0)) != 1){
+            System.out.println("Valor do deposito inválido");
+            return false;
+        }
+
+        this.saldo = this.saldo.add(valor);
+        return true;
+    }
 
 }
