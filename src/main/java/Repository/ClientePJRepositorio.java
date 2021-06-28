@@ -1,5 +1,6 @@
 package Repository;
 
+
 import Model.Cliente.ClientePJ;
 
 import java.util.List;
@@ -13,8 +14,15 @@ public class ClientePJRepositorio {
         this.lista = lista;
     }
 
-    void salvar(ClientePJ cliente){
+    boolean salvar(ClientePJ cliente){
+        Optional<ClientePJ> resultado = this.getByCnpj(cliente.getCnpj());
+        if (!resultado.isEmpty()){
+            System.out.println("O usuário já existe");
+            return false;
+        }
+
         this.lista.add(cliente);
+        return true;
     }
 
     Optional<ClientePJ> getByCnpj(String cnpj){
@@ -27,5 +35,18 @@ public class ClientePJRepositorio {
 
     void remove(String cnpj){
         this.lista.removeIf(c -> c.getCnpj().equals(cnpj));
+    }
+
+
+    boolean atualizar(ClientePJ cliente){
+        Optional<ClientePJ> resultado = this.getByCnpj(cliente.getCnpj());
+        if (resultado.isEmpty()){
+            System.out.println("O usuário não existe");
+            return false;
+        }
+
+        this.remove(cliente.getCnpj());
+        this.salvar(cliente);
+        return true;
     }
 }

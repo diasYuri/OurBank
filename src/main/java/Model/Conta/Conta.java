@@ -1,5 +1,7 @@
 package Model.Conta;
 
+import Util.Gerador;
+
 import java.util.Date;
 import java.math.BigDecimal;
 
@@ -11,8 +13,11 @@ public class Conta {
     private Date dataFiliação;
     private String chavePix;
 
-    public Conta(BigDecimal saldo){
-        this.saldo = saldo;
+    public Conta(Gerador gerador, String agencia, Date dataFiliação) {
+        this.agencia = agencia;
+        this.numero = gerador.numeroConta();
+        this.dataFiliação = dataFiliação;
+        this.saldo = new BigDecimal(0);
     }
 
     public String getAgencia() {
@@ -36,6 +41,11 @@ public class Conta {
     }
 
     public Boolean retirarDinheiro(BigDecimal valor){
+        if(valor == null){
+            System.out.println("Valor não pode ser null");
+            return false;
+        }
+
         if(valor.compareTo(new BigDecimal(0)) != 1){
             System.out.println("Valor da retirada não pode ser menor ou igual a 0");
             return false;
@@ -51,6 +61,11 @@ public class Conta {
     }
 
     public Boolean depositarDinheiro(BigDecimal valor){
+        if(valor == null){
+            System.out.println("Valor não pode ser null");
+            return false;
+        }
+
         if(valor.compareTo(new BigDecimal(0)) != 1){
             System.out.println("Valor do deposito inválido");
             return false;
