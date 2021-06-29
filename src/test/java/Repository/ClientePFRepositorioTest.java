@@ -1,6 +1,7 @@
 package Repository;
 
 import Model.Cliente.ClientePF;
+import Model.Cliente.ClientePJ;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -51,7 +52,6 @@ class ClientePFRepositorioTest {
         var cliente = criarCliente();
         lista.add(cliente);
 
-
         var repositorio = new ClientePFRepositorio(lista);
         Optional<ClientePF> resposta = repositorio.getByCpf("029.126.110-83");
 
@@ -70,9 +70,28 @@ class ClientePFRepositorioTest {
     }
 
     @Test
+    public void deveRetornarTrueERemoveUmObjetoExistente() { ;
+        var cliente = criarCliente();
+        lista.add(cliente);
+
+        var repositorio = new ClientePFRepositorio(lista);
+
+
+        assertEquals(true, repositorio.remove("029.126.110-83"));
+        assertEquals(0, lista.size());
+    }
+
+    @Test
+    public void deveRetornarFalseAoTentarRemoveUmObjetoInexistente() {
+        var repositorio = new ClientePFRepositorio(lista);
+
+        assertEquals(false, repositorio.remove("029.126.110-83"));
+    }
+
+    @Test
     public void deveRetornarFalseAoTentarAtualizarClienteInexistente(){
         ClientePF cliente = criarCliente();
-        ClientePFRepositorio repo = new ClientePFRepositorio(new ArrayList<>());
+        ClientePFRepositorio repo = new ClientePFRepositorio(lista);
 
         assertEquals(false, repo.atualizar(cliente));
     }

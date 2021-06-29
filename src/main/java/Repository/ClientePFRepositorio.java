@@ -13,7 +13,7 @@ public class ClientePFRepositorio {
         this.lista = lista;
     }
 
-    boolean salvar(ClientePF cliente){
+    public boolean salvar(ClientePF cliente){
         Optional<ClientePF> resultado = this.getByCpf(cliente.getCpf());
         if (!resultado.isEmpty()){
             System.out.println("O usuário já existe");
@@ -24,7 +24,7 @@ public class ClientePFRepositorio {
         return true;
     }
 
-    Optional<ClientePF> getByCpf(String cpf){
+    public Optional<ClientePF> getByCpf(String cpf){
         return this.lista
                 .stream()
                 .filter(c -> c.getCpf() == cpf)
@@ -32,11 +32,11 @@ public class ClientePFRepositorio {
 
     }
 
-    void remove(String cpf){
-        this.lista.removeIf(c -> c.getCpf() == cpf);
+    public boolean remove(String cpf){
+        return this.lista.removeIf(c -> c.getCpf().equals(cpf));
     }
 
-    boolean atualizar(ClientePF cliente){
+    public boolean atualizar(ClientePF cliente){
         Optional<ClientePF> resultado = this.getByCpf(cliente.getCpf());
         if (resultado.isEmpty()){
             System.out.println("O usuário não existe");
@@ -47,6 +47,4 @@ public class ClientePFRepositorio {
         this.salvar(cliente);
         return true;
     }
-
-
 }

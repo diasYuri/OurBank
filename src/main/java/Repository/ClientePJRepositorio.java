@@ -14,7 +14,7 @@ public class ClientePJRepositorio {
         this.lista = lista;
     }
 
-    boolean salvar(ClientePJ cliente){
+    public boolean salvar(ClientePJ cliente){
         Optional<ClientePJ> resultado = this.getByCnpj(cliente.getCnpj());
         if (!resultado.isEmpty()){
             System.out.println("O usuário já existe");
@@ -25,7 +25,7 @@ public class ClientePJRepositorio {
         return true;
     }
 
-    Optional<ClientePJ> getByCnpj(String cnpj){
+    public Optional<ClientePJ> getByCnpj(String cnpj){
         return this.lista
                 .stream()
                 .filter(c -> c.getCnpj().equals(cnpj))
@@ -33,12 +33,12 @@ public class ClientePJRepositorio {
 
     }
 
-    void remove(String cnpj){
-        this.lista.removeIf(c -> c.getCnpj().equals(cnpj));
+    public boolean remove(String cnpj){
+        return this.lista.removeIf(c -> c.getCnpj().equals(cnpj));
     }
 
 
-    boolean atualizar(ClientePJ cliente){
+    public boolean atualizar(ClientePJ cliente){
         Optional<ClientePJ> resultado = this.getByCnpj(cliente.getCnpj());
         if (resultado.isEmpty()){
             System.out.println("O usuário não existe");

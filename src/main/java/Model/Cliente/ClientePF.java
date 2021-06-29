@@ -8,6 +8,7 @@ public class ClientePF extends Cliente {
     private String cpf;
 
     public ClientePF(String nome, String cpf) {
+        this.setId(cpf);
         this.setNome(nome);
         this.setCpf(cpf);
     }

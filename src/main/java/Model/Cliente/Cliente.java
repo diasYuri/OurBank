@@ -7,13 +7,28 @@ import java.util.List;
 
 public abstract class Cliente {
 
-    protected List<Conta> contas;
+    protected String Id;
+    protected Conta conta;
 
     public Cliente(){
-        contas = new ArrayList<Conta>();
+
     }
 
-    public List<Conta> getContas() {
-        return this.contas;
+    public Conta getConta() {
+        return this.conta;
+    }
+
+    public String getId() {
+        return Id;
+    }
+
+    public Cliente setConta(Conta conta) {
+        this.conta = conta;
+        return this;
+    }
+
+    public Cliente setId(String id) {
+        Id = id;
+        return this;
     }
 }

@@ -8,12 +8,8 @@ class GeradorTest
 {
 
     @Test
-    void numeroConta()
+    void deveRetornarONumeroDaContaNoPadraoCorreto()
     {
-        Gerador gerador = new Gerador();
-
-        System.out.println(gerador.numeroConta());
-
-        assertEquals(10, gerador.numeroConta().length());
+        assertEquals(true, Gerador.numeroConta().matches("[0-9]{8}-[0-9]{1}"));
     }
 }

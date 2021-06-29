@@ -2,6 +2,7 @@ package Model.Conta;
 
 import Util.Gerador;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.math.BigDecimal;
 
@@ -10,10 +11,10 @@ public class Conta {
     private String agencia;
     private String numero;
     private BigDecimal saldo;
-    private Date dataFiliação;
+    private String dataFiliação;
     private String chavePix;
 
-    public Conta(Gerador gerador, String agencia, Date dataFiliação) {
+    public Conta(Gerador gerador, String agencia, String dataFiliação) {
         this.agencia = agencia;
         this.numero = gerador.numeroConta();
         this.dataFiliação = dataFiliação;
@@ -28,11 +29,16 @@ public class Conta {
         return numero;
     }
 
+    public Conta setChavePix(String chavePix) {
+        this.chavePix = chavePix;
+        return this;
+    }
+
     public BigDecimal getSaldo() {
         return saldo;
     }
 
-    public Date getDataFiliação() {
+    public String getDataFiliação() {
         return dataFiliação;
     }
 
@@ -45,17 +51,14 @@ public class Conta {
             System.out.println("Valor não pode ser null");
             return false;
         }
-
         if(valor.compareTo(new BigDecimal(0)) != 1){
             System.out.println("Valor da retirada não pode ser menor ou igual a 0");
             return false;
         }
-
         if(valor.compareTo(this.saldo) == 1){
             System.out.println("Saldo indisponivel");
             return false;
         }
-
         this.saldo = this.saldo.subtract(valor);
         return true;
     }
@@ -65,12 +68,10 @@ public class Conta {
             System.out.println("Valor não pode ser null");
             return false;
         }
-
         if(valor.compareTo(new BigDecimal(0)) != 1){
             System.out.println("Valor do deposito inválido");
             return false;
         }
-
         this.saldo = this.saldo.add(valor);
         return true;
     }

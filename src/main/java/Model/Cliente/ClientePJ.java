@@ -7,6 +7,7 @@ public class ClientePJ extends Cliente {
 
 
     public ClientePJ(String razaoSocial, String cnpj){
+        this.setId(cnpj);
         this.setCnpj(cnpj);
         this.setRazaoSocial(razaoSocial);
     }

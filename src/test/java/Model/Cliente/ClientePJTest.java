@@ -32,4 +32,11 @@ class ClientePJTest {
 
         assertEquals("qualquer", cliente.getRazaoSocial());
     }
+
+    @Test
+    void getRazaoSocial() {
+        ClientePJ cliente = new ClientePJ("qualquer", "42.623.188/0001-74");
+
+        assertEquals(true, cliente.getRazaoSocial().equals("qualquer"));
+    }
 }
