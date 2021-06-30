@@ -7,7 +7,7 @@ import java.util.List;
 
 public abstract class Cliente {
 
-    protected String Id;
+    private String Id;
     protected Conta conta;
 
     public Cliente(){
