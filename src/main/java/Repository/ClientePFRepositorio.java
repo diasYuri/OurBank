@@ -15,6 +15,7 @@ public class ClientePFRepositorio {
 
     public boolean salvar(ClientePF cliente){
         Optional<ClientePF> resultado = this.getByCpf(cliente.getCpf());
+
         if (!resultado.isEmpty()){
             System.out.println("O usuário já existe");
             return false;
