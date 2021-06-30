@@ -3,5 +3,5 @@ Trabalho da disciplina de Orientação a objetos UJFJ
 
 
 ## Grupo
-- Nícolas
+- Nícolas Moraes
 - Yuri Dias de Azevedo
